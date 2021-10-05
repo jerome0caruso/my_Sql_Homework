@@ -33,9 +33,8 @@ SELECT COUNT(last_name) FROM customer WHERE store_id = 1 and last_name LIKE '%es
 
 -- Question # 9
 
-SELECT COUNT(amount) FROM payment WHERE customer_id >= 380 and customer_id <= 430;
-SELECT inventory_id, COUNT(*) FROM rental GROUP BY inventory_id;
--- answer: I couldn't figure out how to get the number of rentals? I tried on the second query with no luck.
+SELECT COUNT(rental_id), amount FROM payment WHERE customer_id >= 380 and customer_id <= 430 GROUP BY amount HAVING count(rental_id) > 250;
+-- answer: 3
 
 
 -- Question # 10
